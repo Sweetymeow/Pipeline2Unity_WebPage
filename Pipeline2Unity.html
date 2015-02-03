@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<head>
+		<title>Pipeline Flash to Unity / NaturalGas </title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<!-- Google Fonts Link -->
+		<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,600,800,700,300' rel='stylesheet' type='text/css'>
+		<!-- Awesome Font for iCon -->
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+		<style type="text/css" media="screen">
+		/* Flash Style */
+		html, body { height:100%; background-color: #ffffff; }
+		#flashContent { margin-top: 2em; width:100%; height:100%; }
+		/* Unity Style */
+		body {
+			margin:0; padding:0; 
+			font-family: 'Lobster', Helvetica, Verdana, Arial, sans-serif;
+			color: black;
+			text-align: center;
+			/*  overflow: hidden; stop page to scroll */
+		}
+		span#title { font-weight: 700; margin: 0 10px 0 10px; color: #ed786a; text-shadow: 0.05em 0.075em 0 rgba(0,0,0,0.1);}
+		a:link, a:visited { color: #000; }
+		a:active, a:hover { color: #666;	}
+		p.header { font-size: middle; margin: 1em 0 1em 0; }
+		p.header span { font-weight: bold; }
+		p.footer { font-size: x-small; }
+		div.content { margin: auto; width: 1024px;}
+		div.broken, div.missing { margin: auto; position: relative;	top: 50%;	width: 193px; }
+		div.broken a, div.missing a { height: 63px; position: relative; top: -31px; }
+		div.broken img, div.missing img { border-width: 0px; }
+		div.broken { display: none; }
+		div#unityPlayer { padding-left: 32px ;cursor: default; height: 600px; width: 960px; }
+		/*  Unity Style  End */
+		/*  My style for Unity */
+		div.unity{ margin-top: 4em;}
+		div#anchorLink{ margin-top: 2em; height: 60px; color: red; font-size: 24px; font-weight: bold; }
+		h2{ font-size: 32px;}
+		.header { font: 'Pacifico'; background-image: (75deg, rgb(255, 112, 136) 15%, rgb(242, 182, 157) 55%);}
+		#space{ border-bottom: solid 2px #e5e5e5; }
+		a#colorLink{color : #ed786a;}
+		a#icon{ color : #ed786a; margin-right: 10px; }
+		.btn {
+		display: inline-block; margin-bottom: 0; font-weight: normal; text-align: center; vertical-align: middle; 
+		cursor: pointer; background-image: none; border: 1px solid transparent; white-space: nowrap; border-radius: 4px; 
+		-webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;}
+		</style>
+        
+        <!-- Unity Script 1 -->
+        <script type='text/javascript' src='https://ssl-webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/jquery.min.js'></script>
+        <!-- Unity Script 2 -->
+		<script type="text/javascript">
+		var unityObjectUrl = "http://webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/UnityObject2.js";
+		if (document.location.protocol == 'https:')
+			unityObjectUrl = unityObjectUrl.replace("http://", "https://ssl-");
+		document.write('<script type="text\/javascript" src="' + unityObjectUrl + '"><\/script>');
+		</script>
+       	<!-- Unity Script 3 -->
+		<script type="text/javascript">
+			var config = {
+				width: 960, 
+				height: 600,
+				params: { enableDebugging:"0" }
+				
+			};
+			var u = new UnityObject2(config);
+
+			jQuery(function() {
+
+				var $missingScreen = jQuery("#unityPlayer").find(".missing");
+				var $brokenScreen = jQuery("#unityPlayer").find(".broken");
+				$missingScreen.hide();
+				$brokenScreen.hide();
+				
+				u.observeProgress(function (progress) {
+					switch(progress.pluginStatus) {
+						case "broken":
+							$brokenScreen.find("a").click(function (e) {
+								e.stopPropagation();
+								e.preventDefault();
+								u.installPlugin();
+								return false;
+							});
+							$brokenScreen.show();
+						break;
+						case "missing":
+							$missingScreen.find("a").click(function (e) {
+								e.stopPropagation();
+								e.preventDefault();
+								u.installPlugin();
+								return false;
+							});
+							$missingScreen.show();
+						break;
+						case "installed":
+							$missingScreen.remove();
+						break;
+						case "first":
+						break;
+					}
+				});
+				u.initPlugin(jQuery("#unityPlayer")[0], "PHPDateReceiveTest2.unity3d");
+			});
+			/* Google Fonts embed Code */
+			 (function() {
+                var link_element = document.createElement("link"),
+                    s = document.getElementsByTagName("script")[0];
+                if (window.location.protocol !== "http:" && window.location.protocol !== "https:") {
+                    link_element.href = "http:";
+                }
+                link_element.href += "//fonts.googleapis.com/css?family=Open+Sans:300italic,300,400italic,400,600italic,600,700italic,700,800italic,800";
+                link_element.rel = "stylesheet";
+                link_element.type = "text/css";
+                s.parentNode.insertBefore(link_element, s);
+            })();
+		</script>
+	</head>
+	<body>
+	<div class="content" id="top">
+		<p id="space"></p>
+		<h2 class="header"> <span id="title"> Where the pipeline shoud go?</span> <span id="title"> <em> To </em></span> <span id="title"> Natural Gas </span>
+		</h2>
+
+		<p id="space"></p>
+		<div id="flashContent">
+			<object type="application/x-shockwave-flash" data="Pipeline13.swf" width="1024" height="770" id="Pipeline13" style="float: none; vertical-align:middle">
+				<param name="movie" value="Pipeline13.swf" />
+				<param name="quality" value="high" />
+				<param name="bgcolor" value="#ffffff" />
+				<param name="play" value="true" />
+				<param name="loop" value="true" />
+				<param name="wmode" value="window" />
+				<param name="scale" value="showall" />
+				<param name="menu" value="true" />
+				<param name="devicefont" value="false" />
+				<param name="salign" value="" />
+				<param name="allowScriptAccess" value="sameDomain" />
+				<a href="http://www.adobe.com/go/getflash">
+					<img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" />
+				</a>
+			</object>
+		</div>
+		<h4 class="btn"> <a class="fa fa-arrow-circle-down fa-lg" id="icon"></a> <a id="colorLink" href="#goUnity">See your choice on 3D space</a></h4>
+	</div>
+    
+	<div class="content" id="goUnity">
+		<h3 class="header"><span> Unity Web Player | </span> Natural Gas </h3>
+		<div id="unityPlayer">
+			<div class="missing">
+				<a href="http://unity3d.com/webplayer/" title="Unity Web Player. Install now!">
+					<img alt="Unity Web Player. Install now!" src="http://webplayer.unity3d.com/installation/getunity.png" width="193" height="63" />
+				</a>
+			</div>
+			<div class="broken">
+				<a href="http://unity3d.com/webplayer/" title="Unity Web Player. Install now! Restart your browser after install.">
+					<img alt="Unity Web Player. Install now! Restart your browser after install." src="http://webplayer.unity3d.com/installation/getunityrestart.png" width="193" height="63" />
+				</a>
+			</div>
+		</div>
+		<h4 class="btn"> <a class="fa fa-arrow-circle-up fa-lg" id="icon"></a> <a id="colorLink" href="#top"> Back to TOP </a>
+		</h4>
+
+		<p class="footer">&laquo; created with <a href="http://unity3d.com/unity/" title="Go to unity3d.com">Unity</a> &raquo;</p>
+		<p id="space"></p>
+	</div>
+	
+</body>
+</html>
