@@ -13,7 +13,6 @@
 		-->
 		</script>
 		<script type="text/javascript">
-		<!--
 			var config = {
 				width: 960, 
 				height: 600,
@@ -56,9 +55,24 @@
 						break;
 					}
 				});
-				u.initPlugin(jQuery("#unityPlayer")[0], "PHPDateReceiveTest2.unity3d");
+				// u.initPlugin(jQuery("#unityPlayer")[0], "PHPDateReceiveTest2.unity3d");
+                u.initPlugin(jQuery("#unityPlayer")[0], "Pipe2Unity_instructor.unity3d");
 			});
-		-->
+            
+//            //initializing the WebPlayer
+//            var u = new UnityObject2();
+//            u.initPlugin(jQuery("#unityPlayer")[0], "Example.unity3d");
+
+             function SaySomethingToUnity(arg)
+                {   
+                    
+                    var url = document.URL;
+                    var folderUrl;
+                    folderUrl = url.replace(/PHPDateReceiveTest2.html/, "");
+                    console.log(folderUrl);
+                    u.getUnity().SendMessage("FlashTerrain_Pipes", "GetHtmlMessage", folderUrl);
+                }
+		
 		</script>
 		<style type="text/css">
 		<!--
