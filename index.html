@@ -21,8 +21,9 @@
 			/*  overflow: hidden; stop page to scroll */
 		}
 		span#title { font-weight: 700; margin: 0 10px 0 10px; color: #7CB342; text-shadow: 0.05em 0.075em 0 rgba(0,0,0,0.1);}
-		a:link, a:visited { color: #000; }
-		a:active, a:hover { color: #666;	}
+            span#space{ margin-bottom: 4em;}
+		a:link, a:visited { color: #7CB342; }
+		a:active, a:hover { color: #666; }
 		p.header { font-size: middle; margin: 1em 0 1em 0; }
 		p.header span { font-weight: bold; }
 		p.footer { font-size: x-small; }
@@ -31,7 +32,7 @@
 		div.broken a, div.missing a { height: 63px; position: relative; top: -31px; }
 		div.broken img, div.missing img { border-width: 0px; }
 		div.broken { display: none; }
-		div#unityPlayer { padding-left: 32px ;cursor: default; height: 600px; width: 960px; }
+		div#unityPlayer { cursor: default; height: 600px; width: 960px;/*padding-left: 32px ;unity*/ }
 		/*  Unity Style  End */
 		/*  My style for Unity */
 		div.unity{ margin-top: 4em;}
@@ -51,8 +52,8 @@
 	<body>
 	<div class="content" id="top">
 		<p id="space"></p>
-		<h1 class="header"><span id="title"> Where the pipeline shoud go?</span></h1>
-		<p id="space"></p>
+		<h1 class="header"><span id="title"><a href="#flashContent" style="font-size: 1em">Where the pipeline shoud go?</a></span></h1>
+		<p id="space">Introduction</p>
 		<div id="flashContent">
 			<object type="application/x-shockwave-flash" data="Pipeline13.swf" width="1024" height="770" id="Pipeline13" style="float: none; vertical-align:middle">
 				<param name="movie" value="Pipeline13.swf" />
@@ -72,6 +73,7 @@
 			</object>
 		</div>
 		<h3 class="btn"><a class="fa fa-arrow-circle-right fa-lg" id="icon"></a><a id="colorLink" href="naturalgasUnity.html">See your choice on 3D space</a></h3>
+        <p id="space" style="margin-bottom: 2em">© Copyright 2015 The Penn State College of Arts and Architecture and its licensors. All rights reserved</p>
 	</div>
 </body>
 </html>
