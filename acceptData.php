@@ -2,6 +2,9 @@
 session_start();
 // start a session for each user(end when your close brower).
 $flashKey = isset($_GET['key1']);
+$parseID;
+// Parse server
+use Parse\ParseObject;
 
 if ($flashKey) { 
 	// Get Data from Flash
@@ -14,6 +17,11 @@ if ($flashKey) {
 	echo fgets($myfile);
 	echo "\n";
 	fclose($myfile);
+	// ParseObject
+	$pipeNumber = ParseObject::create("PipeNumber");
+	$pipeNumber -> set("userSelPipe", $saveKey);
+	$gameScore -> save();
+	$parseID -> getObjectId();
 }
 // Get Data from Unity
 if (isset($_GET['getkey'])) {
@@ -24,5 +32,4 @@ if (isset($_GET['getkey'])) {
 	echo $_SESSION["pipeNum"];
 	# code...
 }
-
 ?>
